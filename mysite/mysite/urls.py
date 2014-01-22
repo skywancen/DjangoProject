@@ -3,6 +3,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 from mysite.views import *
+from books import views
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'mysite.views.home', name='home'),
@@ -12,4 +13,9 @@ urlpatterns = patterns('',
     ('^hello/$', hello),
     ('^time/$', current_datetime),
     (r'^time/plus/(\d{1,2})/$', hours_ahead),
+    ('^meta/$', display_meta),
+    
+    # books
+    (r'^search-form/$', views.search_form),
+    (r'^search/$', views.search),
 )
